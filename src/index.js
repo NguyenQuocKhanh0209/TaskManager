@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
 
-import Task from "./models/Task.js";
+import taskRouter from "./routers/taskRouter.js";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+app.use("/api/tasks", taskRouter)
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,7 +21,7 @@ mongoose.connect(MONGODB_URL)
         console.log(`Loi ket nối cơ sở dữ liệu: ${error}`)
     });
 
-
+app.post('/api/createTasks',)
 
 
 
